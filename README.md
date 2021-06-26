@@ -66,3 +66,25 @@ export default function factory () {
 Webpack accepts a configuration object as the default export, but it also
 accepts a factory function which returns a configuration object.
 We export a function here because it is more flexable.
+
+## Load Webpack configuration
+
+Webpack will detect file extension of the configuration file. If Node.js cannot
+interpret it, Webpack will try to find a plugin to load the file.
+There are several packages can do this, `@babel/register` and `ts-node` probably
+are the most well known.
+Since we are not going to use Babel here, we will go with `ts-node`.
+
+### Install ts-node and tsc
+
+`ts-node` is simply a wrapper application which let Node.js work with
+TypeScript, so we still need `tsc` for transpilation.
+To do this we need to install `ts-node` and `typescript` first.
+
+```
+yarn add -D ts-node typescript @types/nodes@14
+```
+
+`@types/nodes@14` is a peer dependency of `ts-node`, which is not required.
+I just add it here to prevent warnings.
+Specifing `14` because I'm targeting on Node.js 14.
