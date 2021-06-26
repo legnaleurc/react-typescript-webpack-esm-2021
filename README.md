@@ -227,3 +227,27 @@ yarn add -D @types/react @types/react-dom
   }
 }
 ```
+
+## Start from an example code
+
+Now we are ready to compile TypeScript code. We will deal with HTML/CSS later
+soon.
+
+`src/index.tsx`
+```tsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+function Application () {
+  return <h1>Hello, world!</h1>;
+}
+
+
+ReactDOM.render(<Application />, document.querySelector('.body'));
+```
+
+This is really simple, we defined a component `Application`, and render to an
+element which has class `body`.
+Note that it is not recommended to render a component as a immediate child to
+`document.body`.
