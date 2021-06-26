@@ -198,3 +198,20 @@ build script to `package.json` like this.
 
 Note that we **DO NOT** need to call `yarn` in the script. `yarn` will find the
 internal executable by itself.
+
+## Install React and ReactDOM
+
+We need `react` for virtual DOM, and `react-dom` for browser environment.
+
+```
+yarn add react react-dom
+```
+
+Note we actually need these packages in runtime, so they are `dependencies`
+instead of `devDependencies`.
+
+It is also a great idea to have type informations.
+
+```
+yarn add -D @types/react @types/react-dom
+```
