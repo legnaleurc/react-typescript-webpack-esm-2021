@@ -316,3 +316,14 @@ yarn build
 
 Because we did not specify output path and output name, by default it is
 `dist/main.js`.
+
+## Add HTML to the bundle
+
+We at least need a HTML file to be a complete web page. Here we use
+`html-webpack-plugin` to generate the HTML page.
+
+### Install html-webpack-plugin
+
+```
+yarn add -D html-webpack-plugin
+```
