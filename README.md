@@ -384,3 +384,17 @@ So we need to install beta version.
 ```
 yarn add -D webpack-dev-server@next
 ```
+
+### Add start command to package.json
+
+Then we simply add a new command to `package.json` to call it.
+
+```json
+{
+  "scripts": {
+    "start": "NODE_OPTIONS='--loader ts-node/esm' webpack-dev-server --node-env=development"
+  }
+}
+```
+
+Use `yarn start` will start the server.
