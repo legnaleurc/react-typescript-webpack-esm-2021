@@ -350,3 +350,20 @@ just use this file name.
   </body>
 </html>
 ```
+
+### Add plugin to Webpack
+
+By using the default settings in `html-webpack-plugin`, we just need few
+modification to `webpack.config.ts`.
+
+```typescript
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+const config: webpack.Configuration = {
+  entry: './src/index.tsx',
+  module: { /* ... */ },
+  plugins: [
+    new HtmlWebpackPlugin(),
+  ],
+};
+```

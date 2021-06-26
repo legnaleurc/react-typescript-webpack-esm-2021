@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 
 export default function factory () {
@@ -15,6 +16,9 @@ export default function factory () {
         },
       ],
     },
+    plugins: [
+      new HtmlWebpackPlugin(),
+    ],
   };
 
   return config;
