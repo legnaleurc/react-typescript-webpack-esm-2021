@@ -251,3 +251,27 @@ This is really simple, we defined a component `Application`, and render to an
 element which has class `body`.
 Note that it is not recommended to render a component as a immediate child to
 `document.body`.
+
+## Add ts-loader to Webpack for source code
+
+Now we need to add `ts-loader` to let Webpack to understand how to transpile
+TypeScript to JavaScript.
+
+Do not confuse this with `ts-node`.
+`ts-node` is used to allow Webpack read **configuration files**
+(i.e. `webpack.config.*`) which written in TypeScript.
+Where `ts-loader` is used to allow Webpack to process **source files** which
+written in TypeScript.
+
+So the pipeline is more or less like this.
+
+1. `node` uses `ts-node` loader to gain TypeScript compatibility.
+2. `node` executes `webpack-cli` which uses `webpack` API.
+3. `webpack` reads `webpack.config.ts` (thanks to `ts-node`).
+4. `webpack` uses `ts-loader` to process `*.ts` to `*.js`.
+
+### Install ts-loader
+
+```
+yarn add -D ts-loader
+```
