@@ -367,3 +367,20 @@ const config: webpack.Configuration = {
   ],
 };
 ```
+
+## (Optional) Use webpack-dev-server to auto-reload project
+
+During development, we don't want to run `yarn build` everytime. Instead we will
+start a development server which will watch file changes, auto rebuild project,
+and notify the browser to reload pages.
+
+To do so we use `webpack-dev-server` here.
+
+### Install webpack-dev-server
+
+As this guide was written, `webpack-dev-server` was not ready for Webpack 5 yet.
+So we need to install beta version.
+
+```
+yarn add -D webpack-dev-server@next
+```
