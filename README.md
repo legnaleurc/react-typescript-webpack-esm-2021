@@ -19,3 +19,14 @@ in the mid of 2021.
 * Use `ts-loader` to compile `.tsx` and `.ts` files.
 
 # Step by Step
+
+## Create initial package.json
+
+We use yarn here because npm sucks.
+
+```
+yarn init -y
+```
+
+`-y` will use default values for `package.json` fields, instead of asking
+questions.
