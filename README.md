@@ -30,3 +30,39 @@ yarn init -y
 
 `-y` will use default values for `package.json` fields, instead of asking
 questions.
+
+## Install Webpack
+
+First we need a bundler, i.e. Webpack. Webpack can process your sources and
+bundle them to HTML/JavaScript/CSS files.
+Webpack itself is just a library, so we also need a CLI tool to run it.
+
+```
+yarn add -D webpack webpack-cli
+```
+
+You can invoke webpack CLI by yarn:
+
+```
+yarn webpack
+```
+
+## Write Webpack configuration in TypeScript
+
+Webpack configuration can be written in TypeScript. Let's start it with a simple
+file.
+
+```typescript
+import webpack from 'webpack';
+
+
+export default function factory () {
+  const config: webpack.Configuration = {
+  };
+  return config;
+};
+```
+
+Webpack accepts a configuration object as the default export, but it also
+accepts a factory function which returns a configuration object.
+We export a function here because it is more flexable.
