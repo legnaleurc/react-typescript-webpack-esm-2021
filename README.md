@@ -398,3 +398,22 @@ Then we simply add a new command to `package.json` to call it.
 ```
 
 Use `yarn start` will start the server.
+
+## (Optional) Hot reloading
+
+While auto reload is handy, every reload will reset states on the page, which is
+still inconvenient while developing.
+Hot reload is a feature which allow webpack **hot patch** changed parts in the
+page, so there is no need to reload the whole page.
+
+We need `react-refresh` for this, and `react-refresh-typescript` for TypeScript
+support, finally `@pmmmwh/react-refresh-webpack-plugin` to setup it in Webpack.
+
+### Install packages
+
+```
+yarn add -D react-refresh react-refresh-typescript @pmmmwh/react-refresh-webpack-plugin@next
+```
+
+`@pmmmwh/react-refresh-webpack-plugin` has some problem with React 17, so we
+install RC version here.
