@@ -275,3 +275,44 @@ So the pipeline is more or less like this.
 ```
 yarn add -D ts-loader
 ```
+
+### Add rules
+
+Modify `webpack.config.ts` like this.
+
+```typescript
+export default function factory () {
+  const config: webpack.Configuration = {
+    entry: './src/index.tsx',
+    module: {
+      rules: [
+        {
+          test: /\.tsx$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'ts-loader',
+          },
+        },
+      ],
+    },
+  };
+
+  return config;
+};
+```
+
+`entry` is the start point(s) of your project. Webpack will find all used
+sources/resources from the script, and bundle them together.
+`module` describes how to process resources.
+We have a rule inside `rules` which describes how we want to do with `.tsx`
+files. We test for file extension and exclude ones in `node_modules`, let them
+pass through `ts-loader`.
+
+Now you should be able to run this to build the source.
+
+```
+yarn build
+```
+
+Because we did not specify output path and output name, by default it is
+`dist/main.js`.
