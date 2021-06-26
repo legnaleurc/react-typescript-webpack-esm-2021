@@ -215,3 +215,15 @@ It is also a great idea to have type informations.
 ```
 yarn add -D @types/react @types/react-dom
 ```
+
+## Make TypeScript recognize JSX syntax
+
+`tsc` also supports JSX syntax, we just need to enable it in `tsconfig.json`.
+
+```json
+{
+  "compilerOptions": {
+    "jsx": "react"
+  }
+}
+```
