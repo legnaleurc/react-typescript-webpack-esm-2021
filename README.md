@@ -112,3 +112,16 @@ it.
   }
 }
 ```
+
+### Support Node.js modules
+
+By default TypeScript use it's own module resolution system, we need to change
+it to support Node.js.
+
+```json
+{
+  "compilerOptions": {
+    "moduleResolution": "node"
+  }
+}
+```
