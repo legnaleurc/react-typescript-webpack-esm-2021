@@ -327,3 +327,26 @@ We at least need a HTML file to be a complete web page. Here we use
 ```
 yarn add -D html-webpack-plugin
 ```
+
+### Create HTML template
+
+`html-webpack-plugin` will generate a default HTML file for you. But since we
+want to render our component into an element matches `.body`, which the default
+page does not have, we have to create our own template.
+
+By default `html-webpack-plugin` will use `src/index.ejs` as the template, let's
+just use this file name.
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Webpack App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+  <body>
+    <div class="body"></div>
+  </body>
+</html>
+```
