@@ -2,6 +2,7 @@
   "name": "react_typescript_webpack_2021",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "author": "Wei-Cheng Pan <legnaleurc@gmail.com>",
   "license": "MIT",
   "devDependencies": {

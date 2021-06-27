@@ -138,3 +138,31 @@ turn it on.
   }
 }
 ```
+
+### Enable ESM
+
+To Enable ESM, these are essential.
+
+#### Declare this package is in ESM mode
+
+Add a field in `package.json` to declare this is an ESM package.
+
+```json
+{
+  "type": "module"
+}
+```
+
+#### Configure TypeScript to use ESM
+
+TypeScript needs to know it should resolve/generate code in ESM instead of
+CommonJS. So we need to change some fields in `tsconfig.json`.
+
+```json
+{
+  "compilerOptions": {
+    "target": "ESNEXT",
+    "module": "ESNext"
+  }
+}
+```
