@@ -166,3 +166,35 @@ CommonJS. So we need to change some fields in `tsconfig.json`.
   }
 }
 ```
+
+### Add build command
+
+Now we are ready to load the webpack configuration with this command.
+
+```
+NODE_OPTIONS='--loader=ts-node/esm' yarn webpack --node-env=production
+```
+
+`--node-env=production` is an option for Webpack itself, which will set
+`NODE_ENV` to `production` (which is used in many libraries), and set `mode` to
+`production` (which will used by any webpack plugins).
+
+`NODE_OPTIONS='--loader=ts-node/esm'` is a temporary solution for `ts-node` to
+setup some experimental features for Node.js. We probably won't need this in the
+future, but for now it is required.
+This option will also cause Node.js prints some warnings, all about experimental
+features are turned on. In the future we probably won't see those again.
+
+It would be handy to have a simpler shortcut to run the above command, so add a
+build script to `package.json` like this.
+
+```json
+{
+  "scripts": {
+    "build": "NODE_OPTIONS='--loader=ts-node/esm' webpack --node-env=production"
+  }
+}
+```
+
+Note that we **DO NOT** need to call `yarn` in the script. `yarn` will find the
+internal executable by itself.
