@@ -88,3 +88,14 @@ yarn add -D ts-node typescript @types/nodes@14
 `@types/nodes@14` is a peer dependency of `ts-node`, which is not required.
 I just add it here to prevent warnings.
 Specifing `14` because I'm targeting on Node.js 14.
+
+### Create tsconfig.json
+
+We need to create a `tsconfig.json` for `tsc`.
+`ts-node`, `tsc` and even your editor need this file to understand how to
+process your typescripts.
+Let's just create a template first.
+
+```
+yarn tsc --init
+```
