@@ -125,3 +125,16 @@ it to support Node.js.
   }
 }
 ```
+
+### Add DOM library support
+
+TypeScript also provides DOM library type information, it would be helpful to
+turn it on.
+
+```json
+{
+  "compilerOptions": {
+    "lib": ["dom"]
+  }
+}
+```
