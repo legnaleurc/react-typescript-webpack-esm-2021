@@ -99,3 +99,16 @@ Let's just create a template first.
 ```
 yarn tsc --init
 ```
+
+### Extend from ts-node preset
+
+`ts-node` already provides some predefined options, we can simply extends from
+it.
+
+```json
+{
+  "extends": "ts-node/node14/tsconfig.json",
+  "compilerOptions": {
+  }
+}
+```
