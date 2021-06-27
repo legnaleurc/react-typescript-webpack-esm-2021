@@ -465,3 +465,15 @@ export default function factory () {
   return config;
 };
 ```
+
+### Add --hot option to webpack-dev-server
+
+Modify `package.json`.
+
+```json
+{
+  "scripts": {
+    "start": "NODE_OPTIONS='--loader ts-node/esm' webpack-dev-server --node-env=development --hot"
+  }
+}
+```
