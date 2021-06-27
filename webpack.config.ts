@@ -1,8 +1,13 @@
+import process from 'process';
+
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import ReactRefreshTypeScript from 'react-refresh-typescript';
 
 
 export default function factory () {
+  const isDevelopment = process.env.NODE_ENV !== 'production';
   const config: webpack.Configuration = {
     entry: './src/index.tsx',
     module: {
@@ -12,6 +17,13 @@ export default function factory () {
           exclude: /node_modules/,
           use: {
             loader: 'ts-loader',
+            options: {
+              getCustomTransformers() {
+                return {
+                  before: isDevelopment ? [ReactRefreshTypeScript()] : [],
+                };
+              },
+            },
           },
         },
       ],
@@ -20,6 +32,10 @@ export default function factory () {
       new HtmlWebpackPlugin(),
     ],
   };
+
+  if (config.plugins && isDevelopment) {
+    config.plugins.push(new ReactRefreshWebpackPlugin());
+  }
 
   return config;
 };
